@@ -896,6 +896,7 @@ var SocketIoService = (function () {
             displayOwnMsg(data, chat);
         });
         function displayMsg(data, chat) {
+            console.log(data);
             chat.append('<div class="well"><b>' + data.nick + ': </b>' + data.msg + '</div>');
         }
         ;
