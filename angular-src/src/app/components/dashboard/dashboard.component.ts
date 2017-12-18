@@ -54,7 +54,6 @@ export class DashboardComponent implements OnInit {
 	//Connecten des Sockets und Laden alter Nachrichten
 
 	this.socketService.login();
-	//this.socketService.load(msgTo);
 
 
 	//Absenden einer neuen Nachricht
@@ -90,7 +89,8 @@ export class DashboardComponent implements OnInit {
 
 	//Hier werden Nachrichten die in der Datenbank gespeichert sind ausgegeben
 
-	//this.socketService.output($chat, msgTo);
+	this.socketService.output($chat, msgTo);
+	//this.socketService.load(msgTo);
 
 
   }
