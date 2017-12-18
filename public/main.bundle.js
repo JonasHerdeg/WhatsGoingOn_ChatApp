@@ -906,17 +906,17 @@ var SocketIoService = (function () {
     };
     //Ausgeben alter Nachrichten aus der Datenbank
     SocketIoService.prototype.output = function (chat, active) {
-        var _this = this;
         this.socket.on('output', function (data) {
-            var user = _this.socketUser();
-            for (var i = data.length - 1; i > -1; i--) {
-                if (data[i].from == user.username) {
-                    displayOwnMsg(data[i], chat);
+            /*var user = this.socketUser();
+            for (var i=data.length-1; i>-1; i--){
+                if(data[i].from == user.username){
+                    displayOwnMsg(data[i],chat);
                 }
-                if (data[i].from != user.username) {
+                if(data[i].from != user.username){
                     displayMsg(data[i], chat);
                 }
-            }
+            }*/
+            console.log(data);
         });
         function displayOwnMsg(data, chat) {
             chat.append('<div class="well" style="text-align: right"><b>' + data.from + ': </b>' + data.message + '</div>');
