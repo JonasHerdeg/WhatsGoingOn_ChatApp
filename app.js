@@ -104,7 +104,7 @@ io.on('connection', (socket) => {
 				} else {
 					Chats.find( {to: 'ALL'} ).limit(5).sort({_id:-1}).exec((err,chats)=>{if (err) throw err; socket.emit('output', chats)});
 				}*/
-				//socket.emit('output', 'Hilfe ein Käfer');
+				io.sockets.emit('output', 'Hilfe ein Käfer');
 				console.log(data);
 	});
 

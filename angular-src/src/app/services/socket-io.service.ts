@@ -73,9 +73,9 @@ export class SocketIoService {
 
   //Ausgeben alter Nachrichten aus der Datenbank
 
- /*output(chat, active){
+ output(chat, active){
   	this.socket.on('output', (data) =>{
-  		var user = this.socketUser();
+  		/*var user = this.socketUser();
   		for (var i=data.length-1; i>-1; i--){
   			if(data[i].from == user.username){
   				displayOwnMsg(data[i],chat);
@@ -83,7 +83,7 @@ export class SocketIoService {
   			if(data[i].from != user.username){
   				displayMsg(data[i], chat);
   			} 
-  		}
+  		}*/
       console.log(data);
     });
 
@@ -94,7 +94,7 @@ export class SocketIoService {
 	function displayMsg(data, chat){
 		chat.append('<div class="well"><b>'+data.from+': </b>'+data.message+'</div>');
 	};
-  }*/
+  }
 
 
   //Laden alter Nachrichten
