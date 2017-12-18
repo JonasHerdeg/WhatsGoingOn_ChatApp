@@ -98,15 +98,15 @@ io.on('connection', (socket) => {
 		io.sockets.emit('usernames', Object.keys(onlineUsers));	
 	};
 
-		socket.on('load old msg', (data)=>{
-				/*if (active != 'ALL') {
+		/*socket.on('load old msg', (data)=>{
+				if (active != 'ALL') {
 					Chats.find( {$or:[ {from: socket.nickname ,to: active}, {from: active, to: socket.nickname} ]} ).limit(5).sort({_id:-1}).exec((err,chats)=>{if (err) throw err; socket.emit('output', chats)});
 				} else {
 					Chats.find( {to: 'ALL'} ).limit(5).sort({_id:-1}).exec((err,chats)=>{if (err) throw err; socket.emit('output', chats)});
-				}*/
+				}
 				//onlineUsers[socket.nickname].emit('output', 'Hilfe ein Käfer');
 				console.log(data);
-	});
+	});*/
 
 });
 
