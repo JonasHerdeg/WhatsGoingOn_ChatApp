@@ -905,28 +905,27 @@ var SocketIoService = (function () {
         ;
     };
     //Ausgeben alter Nachrichten aus der Datenbank
-    SocketIoService.prototype.output = function (chat, active) {
-        var _this = this;
-        this.socket.on('output', function (data) {
-            var user = _this.socketUser();
-            for (var i = data.length - 1; i > -1; i--) {
-                if (data[i].from == user.username) {
-                    displayOwnMsg(data[i], chat);
-                }
-                if (data[i].from != user.username) {
-                    displayMsg(data[i], chat);
-                }
-            }
-        });
-        function displayOwnMsg(data, chat) {
-            chat.append('<div class="well" style="text-align: right"><b>' + data.from + ': </b>' + data.message + '</div>');
-        }
-        ;
-        function displayMsg(data, chat) {
-            chat.append('<div class="well"><b>' + data.from + ': </b>' + data.message + '</div>');
-        }
-        ;
-    };
+    /* output(chat, active){
+       this.socket.on('output', (data) =>{
+           var user = this.socketUser();
+           for (var i=data.length-1; i>-1; i--){
+               if(data[i].from == user.username){
+                   displayOwnMsg(data[i],chat);
+               }
+               if(data[i].from != user.username){
+                   displayMsg(data[i], chat);
+               }
+           }
+       });
+   
+       function displayOwnMsg(data, chat){
+           chat.append('<div class="well" style="text-align: right"><b>'+data.from+': </b>'+data.message+'</div>');
+         };
+   
+       function displayMsg(data, chat){
+           chat.append('<div class="well"><b>'+data.from+': </b>'+data.message+'</div>');
+       };
+     }*/
     //Laden alter Nachrichten
     SocketIoService.prototype.load = function (active) {
         this.socket.emit('load old msg', active);
