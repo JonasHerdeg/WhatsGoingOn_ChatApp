@@ -89,6 +89,7 @@ io.on('connection', (socket) => {
 			onlineUsers[msgTo].emit('new message', {msg: msg, nick: socket.nickname});
 			onlineUsers[socket.nickname].emit('new own message', {msg: msg, nick: 'To ' + msgTo});
 		} else {
+			console.log(msg);
 			socket.broadcast.emit('new message', {msg: msg, nick: socket.nickname});
 			onlineUsers[socket.nickname].emit('new own message', {msg: msg, nick: socket.nickname});
 		}
