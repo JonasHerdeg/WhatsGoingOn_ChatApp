@@ -45,15 +45,12 @@ app.get('/', (req, res) => {
 	res.send('Invalid Endpoint');
 });
 
-io.configure(function(){
-	io.set("transports", ["xhr-polling"]);
-	io.set("polling duration", 10);
-});
-
 
 var onlineUsers = {};
 
-var io = require('socket.io')(server);
+var io = socketIO(server);
+
+
 
 mongoose.connection.on('connected', () => {
 	console.log('Connected to Database ' + config.database);
