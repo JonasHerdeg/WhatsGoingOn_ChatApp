@@ -73,7 +73,7 @@ export class SocketIoService {
 
   //Ausgeben alter Nachrichten aus der Datenbank
 
-  /*output(chat, active){
+  output(chat, active){
   	this.socket.on('output', (data) =>{
   		var user = this.socketUser();
   		for (var i=data.length-1; i>-1; i--){
@@ -84,24 +84,23 @@ export class SocketIoService {
   				displayMsg(data[i], chat);
   			} 
   		}
+    });
 
   	function displayOwnMsg(data, chat){
 		chat.append('<div class="well" style="text-align: right"><b>'+data.from+': </b>'+data.message+'</div>');
-	};		
+	  };		
 
 	function displayMsg(data, chat){
 		chat.append('<div class="well"><b>'+data.from+': </b>'+data.message+'</div>');
 	};
-
-  	});
-  }*/
+  }
 
 
   //Laden alter Nachrichten
 
-  /*load(active){
+  load(active){
   	this.socket.emit('load old msg', active);
-  }*/
+  }
 
 
   //Ausloggen des Sockets

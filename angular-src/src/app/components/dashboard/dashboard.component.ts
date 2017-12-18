@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
 	//Connecten des Sockets und Laden alter Nachrichten
 
 	this.socketService.login();
-	//this.socketService.load(msgTo);
+	this.socketService.load(msgTo);
 
 
 	//Absenden einer neuen Nachricht
