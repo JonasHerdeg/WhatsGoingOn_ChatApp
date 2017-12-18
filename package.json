@@ -1,0 +1,27 @@
+{
+  "name": "mean_stack",
+  "version": "1.0.0",
+  "description": "WhatsGoingOn_ChatApp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "bluebird": "^3.5.1",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "socket.io": "*"
+  },
+  "author": "Jonas Herdeg",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/socket.io-client": "^1.4.32"
+  }
+}

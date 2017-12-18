@@ -1,0 +1,15 @@
+#messageArea{
+	margin-top: 30px;
+}
+
+#whisperBox{
+	color: grey;
+}
+
+#whisperArea{
+	display: none;
+}
+
+#chat{
+	border: 1px lightgrey solid;
+}
