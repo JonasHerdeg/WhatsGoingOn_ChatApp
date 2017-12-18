@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
   	//Beim refreshen der Seite Socket neu connecten
-  	if (localStorage.getItem('user')) this.socketService.login();
+  	//if (localStorage.getItem('user')) this.socketService.login();
 
   }
 

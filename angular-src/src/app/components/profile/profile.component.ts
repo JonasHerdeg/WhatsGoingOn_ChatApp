@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
 
     //Reonnecten des Sockets bei Refresh
     
-    this.socketService.login();
+    //this.socketService.login();
 
   }
 

@@ -230,7 +230,7 @@ var DashboardComponent = (function () {
         //Ausgabe der Willkommensschrift
         $welcome.text("Welcome " + user.name + "!");
         //Connecten des Sockets und Laden alter Nachrichten
-        this.socketService.login();
+        this.socketService.login(self);
         this.socketService.load(msgTo);
         //Absenden einer neuen Nachricht
         $messageForm.submit(function (e) {
@@ -320,8 +320,7 @@ var HomeComponent = (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         //Beim refreshen der Seite Socket neu connecten
-        if (localStorage.getItem('user'))
-            this.socketService.login();
+        //if (localStorage.getItem('user')) this.socketService.login();
     };
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -584,7 +583,7 @@ var ProfileComponent = (function () {
             return false;
         });
         //Reonnecten des Sockets bei Refresh
-        this.socketService.login();
+        //this.socketService.login();
     };
     ProfileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -937,8 +936,8 @@ var SocketIoService = (function () {
         this.socket.disconnect();
     };
     //Einloggen des Sockets
-    SocketIoService.prototype.login = function () {
-        event.preventDefault();
+    SocketIoService.prototype.login = function (self) {
+        self.event.preventDefault();
         if (!this.socket.connected) {
             this.socket.open();
             var x = this.authService.getUser();
