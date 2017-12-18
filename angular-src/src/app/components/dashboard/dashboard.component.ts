@@ -53,8 +53,8 @@ export class DashboardComponent implements OnInit {
 
 	//Connecten des Sockets und Laden alter Nachrichten
 
-	this.socketService.login(self);
-	this.socketService.load(msgTo);
+	this.socketService.login();
+	//this.socketService.load(msgTo);
 
 
 	//Absenden einer neuen Nachricht
@@ -84,13 +84,13 @@ export class DashboardComponent implements OnInit {
 		msgTo = $(this).text();
 		$msgToUser.text('Chat to: ' + msgTo);
 		$chat.empty();
-		self.socketService.load(msgTo);
+		//self.socketService.load(msgTo);
 	});
 
 
 	//Hier werden Nachrichten die in der Datenbank gespeichert sind ausgegeben
 
-	this.socketService.output($chat, msgTo);
+	//this.socketService.output($chat, msgTo);
 
 
   }

@@ -68,20 +68,19 @@ io.on('connection', (socket) => {
 	}); 
 
 	socket.on('new user', function(data) {
-		console.log('gasdadqw');
 		socket.nickname = data;
 		console.log(socket.nickname);
 		onlineUsers[socket.nickname] = socket;
 		updateNicknames();
 	});
 
-	socket.on('load old msg', (active)=>{
+	/*socket.on('load old msg', (active)=>{
 				if (active != 'ALL') {
 					Chats.find( {$or:[ {from: socket.nickname ,to: active}, {from: active, to: socket.nickname} ]} ).limit(5).sort({_id:-1}).exec((err,chats)=>{if (err) throw err; socket.emit('output', chats)});
 				} else {
 					Chats.find( {to: 'ALL'} ).limit(5).sort({_id:-1}).exec((err,chats)=>{if (err) throw err; socket.emit('output', chats)});
 				}
-	});
+	});*/
 
 	socket.on('send message', function(data1, data2, callback){
 		var newMsg = new Chats({

@@ -230,8 +230,8 @@ var DashboardComponent = (function () {
         //Ausgabe der Willkommensschrift
         $welcome.text("Welcome " + user.name + "!");
         //Connecten des Sockets und Laden alter Nachrichten
-        this.socketService.login(self);
-        this.socketService.load(msgTo);
+        this.socketService.login();
+        //this.socketService.load(msgTo);
         //Absenden einer neuen Nachricht
         $messageForm.submit(function (e) {
             e.preventDefault();
@@ -249,10 +249,10 @@ var DashboardComponent = (function () {
             msgTo = $(this).text();
             $msgToUser.text('Chat to: ' + msgTo);
             $chat.empty();
-            self.socketService.load(msgTo);
+            //self.socketService.load(msgTo);
         });
         //Hier werden Nachrichten die in der Datenbank gespeichert sind ausgegeben
-        this.socketService.output($chat, msgTo);
+        //this.socketService.output($chat, msgTo);
     };
     DashboardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -905,39 +905,38 @@ var SocketIoService = (function () {
         ;
     };
     //Ausgeben alter Nachrichten aus der Datenbank
-    SocketIoService.prototype.output = function (chat, active) {
-        var _this = this;
-        this.socket.on('output', function (data) {
-            var user = _this.socketUser();
-            for (var i = data.length - 1; i > -1; i--) {
-                if (data[i].from == user.username) {
-                    displayOwnMsg(data[i], chat);
-                }
-                if (data[i].from != user.username) {
-                    displayMsg(data[i], chat);
-                }
-            }
-            function displayOwnMsg(data, chat) {
-                chat.append('<div class="well" style="text-align: right"><b>' + data.from + ': </b>' + data.message + '</div>');
-            }
-            ;
-            function displayMsg(data, chat) {
-                chat.append('<div class="well"><b>' + data.from + ': </b>' + data.message + '</div>');
-            }
-            ;
-        });
-    };
+    /*output(chat, active){
+      this.socket.on('output', (data) =>{
+          var user = this.socketUser();
+          for (var i=data.length-1; i>-1; i--){
+              if(data[i].from == user.username){
+                  displayOwnMsg(data[i],chat);
+              }
+              if(data[i].from != user.username){
+                  displayMsg(data[i], chat);
+              }
+          }
+  
+      function displayOwnMsg(data, chat){
+          chat.append('<div class="well" style="text-align: right"><b>'+data.from+': </b>'+data.message+'</div>');
+      };
+  
+      function displayMsg(data, chat){
+          chat.append('<div class="well"><b>'+data.from+': </b>'+data.message+'</div>');
+      };
+  
+      });
+    }*/
     //Laden alter Nachrichten
-    SocketIoService.prototype.load = function (active) {
-        this.socket.emit('load old msg', active);
-    };
+    /*load(active){
+      this.socket.emit('load old msg', active);
+    }*/
     //Ausloggen des Sockets
     SocketIoService.prototype.logout = function () {
         this.socket.disconnect();
     };
     //Einloggen des Sockets
-    SocketIoService.prototype.login = function (self) {
-        self.event.preventDefault();
+    SocketIoService.prototype.login = function () {
         if (!this.socket.connected) {
             this.socket.open();
             var x = this.authService.getUser();

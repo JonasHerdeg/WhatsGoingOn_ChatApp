@@ -73,7 +73,7 @@ export class SocketIoService {
 
   //Ausgeben alter Nachrichten aus der Datenbank
 
-  output(chat, active){
+  /*output(chat, active){
   	this.socket.on('output', (data) =>{
   		var user = this.socketUser();
   		for (var i=data.length-1; i>-1; i--){
@@ -94,14 +94,14 @@ export class SocketIoService {
 	};
 
   	});
-  }
+  }*/
 
 
   //Laden alter Nachrichten
 
-  load(active){
+  /*load(active){
   	this.socket.emit('load old msg', active);
-  }
+  }*/
 
 
   //Ausloggen des Sockets
@@ -113,8 +113,7 @@ export class SocketIoService {
 
   //Einloggen des Sockets
   
-  login(self){
-  self.event.preventDefault();
+  login(){
   	if (!this.socket.connected){
   	this.socket.open();
     var x = this.authService.getUser();
