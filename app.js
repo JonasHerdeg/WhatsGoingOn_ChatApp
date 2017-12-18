@@ -101,7 +101,7 @@ io.on('connection', (socket) => {
 	});
 
 	function updateNicknames(){
-		console.log(onlineUsers);
+		console.log(onlineUsers.nickname);
 		io.sockets.emit('usernames', Object.keys(onlineUsers));	
 	};
 
