@@ -70,6 +70,7 @@ io.on('connection', (socket) => {
 	socket.on('new user', function(data) {
 		console.log('gasdadqw');
 		socket.nickname = data;
+		console.log(socket.nickname);
 		onlineUsers[socket.nickname] = socket;
 		updateNicknames();
 	});
@@ -103,7 +104,6 @@ io.on('connection', (socket) => {
 	});
 
 	function updateNicknames(){
-		console.log(onlineUsers.nickname);
 		io.sockets.emit('usernames', Object.keys(onlineUsers));	
 	};
 

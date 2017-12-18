@@ -373,7 +373,6 @@ module.exports = "<h2 class=\"page-header\">Login</h2>\n<form (submit)=\"onLogin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_flash_messages__ = __webpack_require__("../../../../ngx-flash-messages/lib-dist/flash-messages.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_validate_service__ = __webpack_require__("../../../../../src/app/services/validate.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_socket_io_service__ = __webpack_require__("../../../../../src/app/services/socket-io.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -388,14 +387,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var LoginComponent = (function () {
-    function LoginComponent(authService, flashMessage, router, validateService, socketService) {
+    function LoginComponent(authService, flashMessage, router, validateService) {
         this.authService = authService;
         this.flashMessage = flashMessage;
         this.router = router;
         this.validateService = validateService;
-        this.socketService = socketService;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -431,8 +428,7 @@ var LoginComponent = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_3_ngx_flash_messages__["b" /* FlashMessagesService */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_4__services_validate_service__["a" /* ValidateService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_socket_io_service__["a" /* SocketIoService */]])
+            __WEBPACK_IMPORTED_MODULE_4__services_validate_service__["a" /* ValidateService */]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -877,6 +873,7 @@ var SocketIoService = (function () {
             var html = '<li class="list-group-item" style="cursor: pointer">ALL</li>';
             for (var i = 0; i < data.length; i++) {
                 if (data[i] !== user.username) {
+                    console.log(data[i]);
                     html += '<li class="list-group-item" style="cursor: pointer">' + data[i] + '</li>';
                 }
             }
@@ -942,7 +939,8 @@ var SocketIoService = (function () {
     SocketIoService.prototype.login = function () {
         if (!this.socket.connected) {
             this.socket.open();
-            var user = JSON.parse(this.authService.getUser());
+            var x = this.authService.getUser();
+            var user = JSON.parse(x);
             this.socket.emit('new user', user.username);
         }
         ;

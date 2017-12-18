@@ -10,8 +10,8 @@ export class SocketIoService {
   constructor(
   	private authService: AuthService
   ) {this.socket = io({
-  		autoConnect: false
-  	});
+    autoConnect: false
+  });
   }
 
 
@@ -31,6 +31,7 @@ export class SocketIoService {
 		var html = '<li class="list-group-item" style="cursor: pointer">ALL</li>';
 		for(var i=0; i<data.length; i++){
 			if (data[i] !== user.username) {
+        console.log(data[i]);
 				html += '<li class="list-group-item" style="cursor: pointer">' + data[i] +'</li>';
 			}		
 		}
@@ -114,7 +115,8 @@ export class SocketIoService {
   login(){
   	if (!this.socket.connected){
   	this.socket.open();
-  	var user = JSON.parse(this.authService.getUser());
+    var x = this.authService.getUser();
+    var user = JSON.parse(x);
   	this.socket.emit('new user', user.username);
   	};
   }
