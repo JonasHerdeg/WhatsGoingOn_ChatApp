@@ -89,7 +89,7 @@ export class DashboardComponent implements OnInit {
 
 	//Hier werden Nachrichten die in der Datenbank gespeichert sind ausgegeben
 
-	this.socketService.output($chat, msgTo);
+	//this.socketService.output($chat, msgTo);
 	this.socketService.load(msgTo);
 
 
