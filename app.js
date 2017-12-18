@@ -45,6 +45,11 @@ app.get('/', (req, res) => {
 	res.send('Invalid Endpoint');
 });
 
+io.configure(function(){
+	io.set("transports", ["xhr-polling"]);
+	io.set("polling duration", 10);
+});
+
 
 var onlineUsers = {};
 

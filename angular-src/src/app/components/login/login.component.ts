@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit {
   	private authService: AuthService,
     private flashMessage: FlashMessagesService,
     private router: Router,
-    private validateService: ValidateService,
-    private socketService: SocketIoService
+    private validateService: ValidateService
    ) { }
 
   ngOnInit() {
