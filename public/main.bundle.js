@@ -215,7 +215,8 @@ var DashboardComponent = (function () {
         //active = derzeit ausgewählter Nutzer mit dem man schreibt
         //user = Nutzerdaten des eigenen Clienten
         var self = this;
-        var user = this.socketService.socketUser();
+        var x = this.authService.getUser();
+        var user = JSON.parse(x);
         var active;
         //Vereinfachung der HTML-Elemente
         var $messageForm = $('#MessageForm');

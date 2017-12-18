@@ -29,7 +29,8 @@ export class DashboardComponent implements OnInit {
   	//user = Nutzerdaten des eigenen Clienten
 
   	var self = this;
-  	var user = this.socketService.socketUser();
+  	var x = this.authService.getUser();
+  	var user = JSON.parse(x);
   	var active;
 
 
