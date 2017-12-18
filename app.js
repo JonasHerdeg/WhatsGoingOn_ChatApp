@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 
 var onlineUsers = {};
 
-var io = socketIO(server);
+var io = require('socket.io')(server);
 
 
 
