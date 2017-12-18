@@ -114,6 +114,7 @@ export class SocketIoService {
   //Einloggen des Sockets
   
   login(){
+  event.preventDefault();
   	if (!this.socket.connected){
   	this.socket.open();
     var x = this.authService.getUser();

@@ -938,6 +938,7 @@ var SocketIoService = (function () {
     };
     //Einloggen des Sockets
     SocketIoService.prototype.login = function () {
+        event.preventDefault();
         if (!this.socket.connected) {
             this.socket.open();
             var x = this.authService.getUser();
