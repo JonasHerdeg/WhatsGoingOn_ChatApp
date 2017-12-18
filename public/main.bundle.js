@@ -870,11 +870,11 @@ var SocketIoService = (function () {
     //Erstellen der OnlineUsersList
     SocketIoService.prototype.usernames = function (users, user) {
         this.socket.on('usernames', function (data) {
-            var html = '<li class="list-group-item" style="cursor: pointer">ALL</li>';
+            var html = '<li class="list-group-item">ALL</li>';
             for (var i = 0; i < data.length; i++) {
                 if (data[i] !== user.username) {
                     console.log(data[i]);
-                    html += '<li class="list-group-item" style="cursor: pointer">' + data[i] + '</li>';
+                    html += '<li class="list-group-item">' + data[i] + '</li>';
                 }
             }
             users.html(html);
