@@ -75,12 +75,12 @@ io.on('connection', (socket) => {
 	});
 
 	socket.on('send message', function(data1, data2, callback){
-		var newMsg = new Chats({
+		/*var newMsg = new Chats({
 			message: data1,
 			from: socket.nickname,
 			to: data2
 			});
-		newMsg.save((err)=>{if (err) throw err; });
+		newMsg.save((err)=>{if (err) throw err; });*/
 
 
 		var msg = data1.trim();
