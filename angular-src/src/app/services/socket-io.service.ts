@@ -24,7 +24,7 @@ export class SocketIoService {
   }
 
 
-  //Erstellen der OnlinUsersList
+  //Erstellen der OnlineUsersList
 
   usernames(users, user){
   	this.socket.on('usernames', function(data) {

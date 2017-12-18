@@ -8,8 +8,6 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 const server = require('http').createServer(app);
 
-console.log('Hello World');
-
 
 const users = require('./routes/users');
 const Chats = require('./models/chats');
@@ -68,6 +66,7 @@ io.on('connection', (socket) => {
 	}); 
 
 	socket.on('new user', function(data) {
+		console.log('gasdadqw');
 		socket.nickname = data;
 		onlineUsers[socket.nickname] = socket;
 		updateNicknames();
@@ -102,6 +101,7 @@ io.on('connection', (socket) => {
 	});
 
 	function updateNicknames(){
+		console.log(onlineUsers);
 		io.sockets.emit('usernames', Object.keys(onlineUsers));	
 	};
 

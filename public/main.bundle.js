@@ -211,8 +211,13 @@ var DashboardComponent = (function () {
         this.socketService = socketService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        var x = this.authService.getUser();
-        var user = JSON.parse(x);
+        //Deklaration von Variablen: 
+        //active = derzeit ausgewählter Nutzer mit dem man schreibt
+        //user = Nutzerdaten des eigenen Clienten
+        var self = this;
+        var user = this.socketService.socketUser();
+        var active;
+        //Vereinfachung der HTML-Elemente
         var $messageForm = $('#MessageForm');
         var $messageBox = $('#message');
         var $chat = $('#chat');
@@ -221,19 +226,23 @@ var DashboardComponent = (function () {
         var $msgToUser = $('#msgTo');
         var msgTo = 'ALL';
         $msgToUser.text('Chat to: ' + msgTo);
-        this.socketService.load(msgTo);
+        //Ausgabe der Willkommensschrift
         $welcome.text("Welcome " + user.name + "!");
-        var self = this;
+        //Connecten des Sockets und Laden alter Nachrichten
         this.socketService.login();
+        this.socketService.load(msgTo);
+        //Absenden einer neuen Nachricht
         $messageForm.submit(function (e) {
             e.preventDefault();
             var val = $messageBox.val();
             self.socketService.sendMessage(val, $chat, msgTo);
             $messageBox.val('');
         });
+        //Beim Empfangen einer neuen Nachricht
         this.socketService.newMessage($chat, msgTo);
+        //Ausgabe der OnlineUser Liste
         this.socketService.usernames($users, user);
-        var active;
+        //Bei Click auf einen Name der OnlineUser Liste
         $users.on('click', 'li', function (event) {
             event.preventDefault();
             msgTo = $(this).text();
@@ -241,6 +250,7 @@ var DashboardComponent = (function () {
             $chat.empty();
             self.socketService.load(msgTo);
         });
+        //Hier werden Nachrichten die in der Datenbank gespeichert sind ausgegeben
         this.socketService.output($chat, msgTo);
     };
     DashboardComponent = __decorate([
@@ -308,6 +318,7 @@ var HomeComponent = (function () {
         this.socketService = socketService;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        //Beim refreshen der Seite Socket neu connecten
         if (localStorage.getItem('user'))
             this.socketService.login();
     };
@@ -387,6 +398,7 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
+    //Beim bestätigen des Logins
     LoginComponent.prototype.onLoginSubmit = function () {
         var _this = this;
         var user = {
@@ -486,6 +498,7 @@ var NavbarComponent = (function () {
     }
     NavbarComponent.prototype.ngOnInit = function () {
     };
+    //Ausloggen: Löschen der lokalen Nutzerdaten + Token, Disconnecten des Sockets, Navigation zum Login
     NavbarComponent.prototype.onLogoutClick = function () {
         this.authService.logout();
         this.flashMessage.show('You are logged out', { classes: ['alert-success'], timeout: 5000 });
@@ -565,6 +578,7 @@ var ProfileComponent = (function () {
         this.socketService = socketService;
     }
     ProfileComponent.prototype.ngOnInit = function () {
+        //Laden des Profils
         var _this = this;
         this.authService.getProfile().subscribe(function (profile) {
             _this.user = profile.user;
@@ -572,6 +586,7 @@ var ProfileComponent = (function () {
             console.log(err);
             return false;
         });
+        //Reonnecten des Sockets bei Refresh
         this.socketService.login();
     };
     ProfileComponent = __decorate([
@@ -657,12 +672,12 @@ var RegisterComponent = (function () {
             email: this.email,
             password: this.password
         };
-        //Required Fields
+        //Alle Felder gefüllt?
         if (!this.validateService.validateRegister(user)) {
             this.flashMessage.show('Please fill in all fields!', { classes: ['alert-danger'], timeout: 3000 });
             return false;
         }
-        // Validate Email
+        // Validierung der Email
         if (!this.validateService.validateEmail(user.email)) {
             this.flashMessage.show('Please enter a valid Email!', { classes: ['alert-danger'], timeout: 3000 });
             return false;
@@ -770,6 +785,7 @@ var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
     }
+    //Funktionen hier sollten dem Namen nach selbsterklärend sein
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
@@ -848,11 +864,13 @@ var SocketIoService = (function () {
             autoConnect: false
         });
     }
+    //Übergabe der Nutzerdaten des eigenen Clienten
     SocketIoService.prototype.socketUser = function () {
         var x = this.authService.getUser();
         var user = JSON.parse(x);
         return user;
     };
+    //Erstellen der OnlineUsersList
     SocketIoService.prototype.usernames = function (users, user) {
         this.socket.on('usernames', function (data) {
             var html = '<li class="list-group-item" style="cursor: pointer">ALL</li>';
@@ -864,11 +882,13 @@ var SocketIoService = (function () {
             users.html(html);
         });
     };
+    //Senden von Nachrichten
     SocketIoService.prototype.sendMessage = function (msg, chat, to) {
         this.socket.emit('send message', msg, to, function (data) {
             chat.append('<div class="well">' + data + '</div>');
         });
     };
+    //Emfangen von Nachrichten
     SocketIoService.prototype.newMessage = function (chat, active) {
         this.socket.on('new message', function (data) {
             if (data.nick == active)
@@ -886,6 +906,7 @@ var SocketIoService = (function () {
         }
         ;
     };
+    //Ausgeben alter Nachrichten aus der Datenbank
     SocketIoService.prototype.output = function (chat, active) {
         var _this = this;
         this.socket.on('output', function (data) {
@@ -908,12 +929,15 @@ var SocketIoService = (function () {
             ;
         });
     };
+    //Laden alter Nachrichten
     SocketIoService.prototype.load = function (active) {
         this.socket.emit('load old msg', active);
     };
+    //Ausloggen des Sockets
     SocketIoService.prototype.logout = function () {
         this.socket.disconnect();
     };
+    //Einloggen des Sockets
     SocketIoService.prototype.login = function () {
         if (!this.socket.connected) {
             this.socket.open();
@@ -952,6 +976,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ValidateService = (function () {
     function ValidateService() {
     }
+    //Valdierung von Registrierung, Login und Email
     ValidateService.prototype.validateRegister = function (user) {
         if (user.name == undefined || user.username == undefined || user.email == undefined || user.password == undefined) {
             return false;
