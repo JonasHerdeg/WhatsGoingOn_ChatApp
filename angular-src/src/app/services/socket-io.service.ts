@@ -87,13 +87,13 @@ export class SocketIoService {
       console.log(data);
     });
 
-  	function displayOwnMsg(data, chat){
+  	/*function displayOwnMsg(data, chat){
 		chat.append('<div class="well" style="text-align: right"><b>'+data.from+': </b>'+data.message+'</div>');
 	  };		
 
 	function displayMsg(data, chat){
 		chat.append('<div class="well"><b>'+data.from+': </b>'+data.message+'</div>');
-	};
+	};*/
   }
 
 
