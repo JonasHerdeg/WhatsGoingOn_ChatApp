@@ -231,7 +231,7 @@ var DashboardComponent = (function () {
         $welcome.text("Welcome " + user.name + "!");
         //Connecten des Sockets und Laden alter Nachrichten
         this.socketService.login();
-        this.socketService.load(msgTo);
+        //this.socketService.load(msgTo);
         //Absenden einer neuen Nachricht
         $messageForm.submit(function (e) {
             e.preventDefault();
