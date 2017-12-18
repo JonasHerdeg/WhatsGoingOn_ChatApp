@@ -874,6 +874,7 @@ var SocketIoService = (function () {
             for (var i = 0; i < data.length; i++) {
                 if (data[i] !== user.username) {
                     console.log(data[i]);
+                    console.log(user.username);
                     html += '<li class="list-group-item">' + data[i] + '</li>';
                 }
             }
