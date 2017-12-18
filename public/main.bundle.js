@@ -252,7 +252,7 @@ var DashboardComponent = (function () {
         });
         //Hier werden Nachrichten die in der Datenbank gespeichert sind ausgegeben
         this.socketService.output($chat, msgTo);
-        //this.socketService.load(msgTo);
+        this.socketService.load(msgTo);
     };
     DashboardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
