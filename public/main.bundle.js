@@ -241,6 +241,8 @@ var DashboardComponent = (function () {
         });
         //Ausgabe der OnlineUser Liste
         this.socketService.usernames($users, user);
+        this.socketService.updateNicknames();
+        console.log('oninit');
         //Bei Click auf einen Name der OnlineUser Liste
         $users.on('click', 'li', function (event) {
             event.preventDefault();
@@ -957,6 +959,9 @@ var SocketIoService = (function () {
     //Ausloggen des Sockets
     SocketIoService.prototype.logout = function () {
         this.socket.disconnect();
+    };
+    SocketIoService.prototype.updateNicknames = function () {
+        this.socket.emit('update nicknames');
     };
     //Einloggen des Sockets
     SocketIoService.prototype.login = function () {
