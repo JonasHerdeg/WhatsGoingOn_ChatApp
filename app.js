@@ -94,14 +94,12 @@ io.on('connection', (socket) => {
 
 		var msg = data1.trim();
 		var msgTo = data2;
-		console.log(msgTo);
 		if (msgTo in onlineUsers) {
-			onlineUsers[msgTo].emit('new message', {msg: msg, nick: socket.nickname, to: msgTo});
-			onlineUsers[socket.nickname].emit('new own message', {msg: msg, nick: socket.nickname});
+			onlineUsers[msgTo].emit('new message', {message: msg, from: socket.nickname, to: msgTo});
+			onlineUsers[socket.nickname].emit('new own message', {message: msg, from: socket.nickname});
 		} else {
-			socket.broadcast.emit('new message', {msg: msg, nick: socket.nickname, to: msgTo});
-			console.log(socket.nickname);
-			onlineUsers[socket.nickname].emit('new own message', {msg: msg, nick: socket.nickname});
+			socket.broadcast.emit('new message', {message: msg, from: socket.nickname, to: msgTo});
+			onlineUsers[socket.nickname].emit('new own message', {message: msg, from: socket.nickname});
 		}
 	});
 

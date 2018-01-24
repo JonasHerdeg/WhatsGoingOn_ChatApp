@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
 
 const config = require('../config/database');
 const User = require('../models/user');
+var imgPath = './defaultUser/user.png';
 
 // Register
 router.post('/register', (req, res, next) => {
@@ -12,7 +14,9 @@ router.post('/register', (req, res, next) => {
 		name: req.body.name,
 		email: req.body.email,
 		username: req.body.username,
-		password: req.body.password
+		password: req.body.password,
+		img :{data: fs.readFileSync(imgPath),
+		contentType : 'image/png' }
 	});
 
 	User.addUser(newUser, (err, user) => {
@@ -45,13 +49,12 @@ router.post('/authenticate', (req, res, next) => {
 				res.json({
 					success:true,
 					token:'JWT '+token,
-					//aud: 'localhost',
-					//iss: 'localhost',
 					user:{
 						id: user._id,
 						name: user.name,
 						username: user.username,
-						email: user.email
+						email: user.email,
+						img: user.img
 					}
 				});
 			} else {
@@ -63,13 +66,37 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 // Profile
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-	res.json({user: req.user});
+router.post('/profile', (req, res, next) => {
+	const username1 = req.body.username;
+	const img = req.body.img.data;
+	console.log(img);
+	const update = {img:{data: img}};
+	User.findOne({username: username1}).then((user) =>{
+		return Object.assign(user, update);
+	}).then((user) => {
+		user.save();
+	});
 });
 
-//Dashboard
-router.get('/dashboard', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-	res.json({user: req.user});
+router.post('/userprofile', (req,res,next)=>{
+	const username = req.body.username;
+	User.getUserByUsername(username, (err, user) => {
+		if (err) {throw err}
+		if (!user) {
+			return res.json({success: false, msg: 'User not found'});
+		}
+
+		res.json({
+			user:{
+				id: user._id,
+				name: user.name,
+				username: user.username,
+				email: user.email,
+				img: user.img
+				}
+		});
+
+	});
 });
 
 
