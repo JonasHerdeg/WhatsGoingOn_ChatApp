@@ -975,9 +975,8 @@ var AuthGuard = (function () {
             return true;
         }
         else {
-            //this.router.navigate(['/login']);
-            //return false;
-            return true;
+            this.router.navigate(['/login']);
+            return false;
         }
     };
     AuthGuard = __decorate([
