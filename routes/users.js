@@ -73,13 +73,7 @@ router.post('/profile', (req, res, next) => {
 	User.findOne({username: username1}).then((user) =>{
 		return Object.assign(user, update);
 	}).then((user, ) => {
-		user.save((err)=>{
-			if (err) {
-				res.json({success:false, msg: 'Image might be too large! Choose one in lower resolution (max. 16KB supported)'});
-			} else {
-				res.json({success:true, msg: 'Successfully saved!'});
-			}
-		});
+		user.save();
 	});
 });
 
