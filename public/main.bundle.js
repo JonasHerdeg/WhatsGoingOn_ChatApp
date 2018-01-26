@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".body {\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-size: cover; \t\r\n\tposition: fixed;\r\n\theight: 100%;\r\n\twidth: 100%;\r\n\t-webkit-box-align: center;\r\n\t    -ms-flex-align: center;\r\n\t        align-items: center;\r\n\t-webkit-box-pack: center;\r\n\t    -ms-flex-pack: center;\r\n\t        justify-content: center;\r\n}", ""]);
+exports.push([module.i, ".body {\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-size: 100%; \t\r\n\tposition: fixed;\r\n\theight: 100%;\r\n\twidth: 100%;\r\n\t-webkit-box-align: center;\r\n\t    -ms-flex-align: center;\r\n\t        align-items: center;\r\n\t-webkit-box-pack: center;\r\n\t    -ms-flex-pack: center;\r\n\t        justify-content: center;\r\n}", ""]);
 
 // exports
 
@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n.chatWindow{\r\n\tborder: 1px solid lightgrey;\r\n  border-radius: 5px;\r\n  padding: 5px;\r\n  background: white;\r\n  height: 300px;\r\n  overflow: auto; \r\n}\r\n\r\n.row{\r\n  background: lightgrey;\r\n  position: center;\r\n  margin: 20px;\r\n  padding: 15px;\r\n  border-radius: 10px;\r\n  border: 3px solid darkgrey;\r\n  box-shadow: 10px 10px 10px black;\r\n}\r\n\r\na:link{\r\n  color: rgb(54,80,103);\r\n}\r\n\r\na:hover{\r\n  color: steelblue;\r\n}\r\n\r\n.welcomeText{\r\n  color: rgb(54,80,103);\r\n}\r\n\r\n.submitBtn{\r\n  background-color: rgb(54,80,103);\r\n}\r\n\r\nlabel{\r\n  color: rgb(54,80,103);\r\n}\r\n\r\ntextarea{\r\n  resize: none;\r\n}\r\n\r\nul{\r\n  margin-top: 15px;\r\n  max-height: 400px;\r\n  overflow: auto;\r\n}\r\n", ""]);
+exports.push([module.i, "\r\n.chatWindow{\r\n\tborder: 1px solid lightgrey;\r\n  border-radius: 5px;\r\n  padding: 5px;\r\n  background: white;\r\n  height: 300px;\r\n  overflow: auto; \r\n}\r\n\r\n.row{\r\n  background: lightgrey;\r\n  margin: 20px;\r\n  padding: 15px;\r\n  border-radius: 10px;\r\n  border: 3px solid darkgrey;\r\n  box-shadow: 10px 10px 10px black;\r\n}\r\n\r\na:link{\r\n  color: rgb(54,80,103);\r\n}\r\n\r\na:hover{\r\n  color: steelblue;\r\n}\r\n\r\n.welcomeText{\r\n  color: rgb(54,80,103);\r\n}\r\n\r\n.submitBtn{\r\n  background-color: rgb(54,80,103);\r\n}\r\n\r\nlabel{\r\n  color: rgb(54,80,103);\r\n}\r\n\r\ntextarea{\r\n  resize: none;\r\n}\r\n\r\nul{\r\n  margin-top: 15px;\r\n  max-height: 400px;\r\n  overflow: auto;\r\n}\r\n", ""]);
 
 // exports
 
@@ -231,7 +231,6 @@ var DashboardComponent = (function () {
         $msgToUser.attr('href', 'javascript:;');
         //Ausgabe der Willkommensschrift
         $welcome.text("Welcome " + user.name + "!");
-        console.log(user.name);
         //Connecten des Sockets und Laden alter Nachrichten
         this.socketService.login();
         this.socketService.load('ALL');
@@ -246,7 +245,6 @@ var DashboardComponent = (function () {
         //Ausgabe der OnlineUser Liste
         this.socketService.usernames($users, user);
         this.socketService.updateNicknames();
-        console.log('oninit');
         //Bei Click auf einen Name der OnlineUser Liste
         $users.on('click', 'li', function (event) {
             event.preventDefault();
@@ -360,7 +358,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "*{\r\n\tfont-family: 'Open Sans Condensed', sans-serif;\r\n}\r\n\r\n\r\n\r\n\r\n.form{\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\ttext-align: center;\r\n  font-size: 13pt;\r\n  float: left;\r\n  position:  relative;\r\n}\r\n\r\n.form .login-form{\r\n\twidth: 100%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n}\r\n\r\n.form .register-form{\r\n\twidth: 100%;\r\n\tmargin-top: 20px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n\tfloat: left;\r\n\tposition: relative;\r\n}\r\n\r\n.form #errorWarnings{\r\n\twidth: 1000px;\r\n\theight: 50px;\r\n\ttext-align: center;\r\n\tmargin: 20px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: transparent;\r\n}\r\n\r\n.form h1{\r\n\tcolor: white;\r\n\twidth: 100%;\r\n\tmargin-top: 70px;\r\n\ttext-align: center;\r\n\tfont-size: 70pt;\r\n\tmargin-bottom: 20px;\r\n\tposition: relative;\r\n\ttext-decoration: underline;\r\n\ttext-shadow: 0 0 80px rgba(255,255,255,0.25);\r\n\t}\r\n\r\n.form p{\r\n\twidth: 1000px;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\tmargin: 40px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tpadding-bottom: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: 2px solid white;\r\n}\r\n\r\n.form input{\r\n\twidth: 250px;\r\n\tmargin-bottom: 10px;\r\n\tpadding-top: 5px;\r\n\tpadding-bottom: 5px;\r\n\tpadding-left: 10px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n.form .message{\r\n\tmargin-left: 30px;\r\n}\r\n\r\n.form .message a{\r\n  color: #f2f2f2;\r\n}\r\n\r\n#login{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n  margin-top: 20px;\r\n\tmargin-bottom: 50px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#create{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#loginButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#registerButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 30px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n .login-page h2 {\r\n\twidth: 21ch;\r\n\theight: 100px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\t-webkit-animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\t        animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\tfont-size: 50pt;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\toverflow: hidden;\r\n\twhite-space: nowrap;\r\n\tborder-right: 3px solid white;\r\n}\r\n\r\n@-webkit-keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n@keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n#icon{\r\n\tcolor: white;\r\n}\r\n\r\n#icon2{\r\n\tcolor: white;\r\n}\r\n\r\n#icon3{\r\n\tcolor: white;\r\n}\r\n\r\n#iconUsername{\r\n  margin-right: 6px;\r\n  margin-left: 3px;\r\n\tcolor: white;\r\n}\r\n\r\n#login:active{\r\n\tcursor: pointer;\r\n}\r\n", ""]);
+exports.push([module.i, "*{\r\n\tfont-family: 'Open Sans Condensed', sans-serif;\r\n}\r\n\r\n.form{\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\ttext-align: center;\r\n  font-size: 13pt;\r\n  float: left;\r\n  position:  relative;\r\n}\r\n\r\n.form .login-form{\r\n\twidth: 100%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n}\r\n\r\n.form .register-form{\r\n\twidth: 100%;\r\n\tmargin-top: 20px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n\tfloat: left;\r\n\tposition: relative;\r\n}\r\n\r\n.form #errorWarnings{\r\n\twidth: 1000px;\r\n\theight: 50px;\r\n\ttext-align: center;\r\n\tmargin: 20px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: transparent;\r\n}\r\n\r\n.form h1{\r\n\tcolor: white;\r\n\twidth: 100%;\r\n\tmargin-top: 70px;\r\n\ttext-align: center;\r\n\tfont-size: 70pt;\r\n\tmargin-bottom: 20px;\r\n\tposition: relative;\r\n\ttext-decoration: underline;\r\n\ttext-shadow: 0 0 80px rgba(255,255,255,0.25);\r\n\t}\r\n\r\n.form p{\r\n\twidth: 1000px;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\tmargin: 40px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tpadding-bottom: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: 2px solid white;\r\n}\r\n\r\n.form input{\r\n\twidth: 250px;\r\n\tmargin-bottom: 10px;\r\n\tpadding-top: 5px;\r\n\tpadding-bottom: 5px;\r\n\tpadding-left: 10px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n.form .message{\r\n\tmargin-left: 30px;\r\n}\r\n\r\n.form .message a{\r\n  color: #f2f2f2;\r\n}\r\n\r\n#login{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n  margin-top: 20px;\r\n\tmargin-bottom: 50px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#create{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#loginButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#registerButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 30px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n .login-page h2 {\r\n\twidth: 21ch;\r\n\theight: 100px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\t-webkit-animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\t        animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\tfont-size: 50pt;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\toverflow: hidden;\r\n\twhite-space: nowrap;\r\n\tborder-right: 3px solid white;\r\n}\r\n\r\n@-webkit-keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n@keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n#icon{\r\n\tcolor: white;\r\n}\r\n\r\n#icon2{\r\n\tcolor: white;\r\n}\r\n\r\n#icon3{\r\n\tcolor: white;\r\n}\r\n\r\n#iconUsername{\r\n  margin-right: 6px;\r\n  margin-left: 3px;\r\n\tcolor: white;\r\n}\r\n\r\n#login:active{\r\n\tcursor: pointer;\r\n}\r\n", ""]);
 
 // exports
 
@@ -444,7 +442,6 @@ var LoginComponent = (function () {
         }
         else {
             this.authService.authenticateUser(user).subscribe(function (data) {
-                console.log('huhuhu');
                 if (data.success) {
                     _this.authService.storeUserData(data.token, data.user);
                     _this.flashMessage.show('You are now logged in!', { classes: ['alert-success'], timeout: 5000 });
@@ -499,7 +496,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <meta charset=\"utf-8\">\n  <title>What'sGoingOn</title>\n  <link rel=\"stylesheet\" href=\"https://bootswatch.com/4/sandstone/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\n\n\n  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\n  <script src=\"/socket.io/socket.io.js\"></script>\n\n</head>\n\n\n\n\n <nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\n      <a class=\"navbar-brand\" href=\"#\">What'sGoingOn</a>\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n\n      <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n        <ul class=\"navbar-nav navbar-left\">\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/']\">Home <span class=\"sr-only\">(current)</span></a>\n          </li>\n        </ul>\n\n        <ul class=\"nav navbar-nav ml-auto\">\n\n          <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Dashboard<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n          <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/profile']\">Profile<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n\n\n          <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/register']\">Register<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n          <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/login']\">Login<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n          <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\">\n            <a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Logout<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n        </ul>\n      </div>\n    </nav>"
+module.exports = "<head>\n  <meta charset=\"utf-8\">\n  <title>What'sGoingOn</title>\n  <link rel=\"stylesheet\" href=\"https://bootswatch.com/4/sandstone/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\n\n\n\n</head>\n\n\n\n\n <nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\n      <a class=\"navbar-brand\" href=\"#\">What'sGoingOn</a>\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n\n      <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n        <ul class=\"navbar-nav navbar-left\">\n          <li class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/']\">Home <span class=\"sr-only\">(current)</span></a>\n          </li>\n        </ul>\n\n        <ul class=\"nav navbar-nav ml-auto\">\n\n          <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Dashboard<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n          <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/profile']\">Profile<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n\n\n          <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/register']\">Register<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n          <li *ngIf=\"!authService.loggedIn()\" class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a class=\"nav-link\" [routerLink]=\"['/login']\">Login<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n          <li *ngIf=\"authService.loggedIn()\" class=\"nav-item\">\n            <a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Logout<span class=\"sr-only\">(current)</span></a>\n          </li>\n\n        </ul>\n      </div>\n    </nav>"
 
 /***/ }),
 
@@ -570,7 +567,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".row{\r\n  background: lightgrey;\r\n  position: center;\r\n  margin: 20px;\r\n  padding: 15px;\r\n  border-radius: 10px;\r\n  border: 3px solid darkgrey;\r\n  box-shadow: 10px 10px 10px black;\r\n}\r\n\r\n.profileImg{\r\n\tmax-width: 300px;\r\n\tmax-height: 300px;\r\n}", ""]);
 
 // exports
 
@@ -583,7 +580,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\n\t<h2 class=\"page-header\">{{user.name}}</h2>\n\t<ul class=\"list-group\">\n\t\t<li class=\"list-group-item\">Username: {{user.username}}</li>\n\t\t<li class=\"list-group-item\">Email: {{user.email}}</li>\n\t</ul>\n</div>\n\n<div id=\"huhu\"></div>\n\n<form id=\"upload\" enctype=\"multipart/form-data\">\n\t<input type=\"file\" id=\"fileid\" hidden/>\n\t<input type=\"button\" id=\"buttonid\" value=\"Upload Profile Picture\" class=\"btn btn-primary\">\n</form>"
+module.exports = "<head>\n  <meta charset=\"utf-8\">\n  <title>What'sGoingOn</title>\n  <link rel=\"stylesheet\" href=\"https://bootswatch.com/4/sandstone/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\n\n\n</head>\n\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-4\">\n\t\t\t<div id=\"proImg\" class=\"profileImg\"></div>\n\t\t\t<form id=\"upload\" enctype=\"multipart/form-data\">\n\t\t\t\t<input type=\"file\" id=\"fileid\" hidden/>\n\t\t\t\t<input type=\"button\" id=\"buttonid\" value=\"Upload Profile Picture\" class=\"btn btn-primary\">\n\t\t\t</form>\n\t\t</div>\t\n\t\t<div class=\"col-md-8\">\n\t\t\t<div *ngIf=\"user\">\n\t\t\t\t<h2 class=\"page-header\">{{user.name}}</h2>\n\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t<li class=\"list-group-item\">Username: {{user.username}}</li>\n\t\t\t\t\t<li class=\"list-group-item\">Email: {{user.email}}</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\t\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -625,12 +622,11 @@ var ProfileComponent = (function () {
         var self = this;
         //Laden des Profils
         this.user = JSON.parse(this.authService.getUser());
-        console.log(this.user.img.data.data);
         var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(this.user.img.data.data)));
         var output = document.createElement('img');
         output.src = 'data:image/png;base64,' + base64String;
         output.alt = 'Error! Failed to load image...';
-        var $div = $('#huhu');
+        var $div = $('#proImg');
         $div.append(output);
         var $button = $('#buttonid');
         var $fileid = $('#fileid');
@@ -642,20 +638,29 @@ var ProfileComponent = (function () {
         });
         var fileid = document.getElementById('fileid');
         fileid.addEventListener('change', function () {
+            if (this.files[1] != null) {
+                self.flashMessage.show('Choose only one file please', { classes: ['alert-danger'], timeout: 3000 });
+                return;
+            }
+            if (!(this.files[0].type === 'image/png') && !(this.files[0].type === 'image/jpeg')) {
+                self.flashMessage.show('Please select an Image', { classes: ['alert-danger'], timeout: 3000 });
+                return;
+            }
+            if (this.files[0].size >= 16000) {
+                self.flashMessage.show('Your Image is too large! Please select one with lower resolution (max. 16kb supported)', { classes: ['alert-danger'], timeout: 3000 });
+                return;
+            }
             var reader = new FileReader();
             reader.onload = function (e) {
                 var img = reader.result;
-                console.log(reader.result);
                 var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(img)));
                 output.src = 'data:image/png;base64,' + base64String;
                 var change = JSON.parse(self.authService.getUser());
-                console.log(change);
                 var buff = new __WEBPACK_IMPORTED_MODULE_5_buffer__["Buffer"](img.byteLength);
                 var view = new Uint8Array(img);
                 for (var i = 0; i < buff.length; i++)
                     buff[i] = view[i];
                 change.img.data = buff;
-                console.log(change.img.data);
                 localStorage.removeItem('user');
                 localStorage.setItem('user', JSON.stringify(change));
                 var send = {
@@ -663,7 +668,12 @@ var ProfileComponent = (function () {
                     img: change.img.data
                 };
                 self.authService.setProfile(send).subscribe(function (data) {
-                    console.log('yay');
+                    if (data.success) {
+                        self.flashMessage.show(data.msg, { classes: ['alert-success'], timeout: 3000 });
+                    }
+                    else {
+                        self.flashMessage.show(data.msg, { classes: ['alert-danger'], timeout: 3000 });
+                    }
                 });
             };
             reader.readAsArrayBuffer(this.files[0]);
@@ -697,7 +707,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "*{\r\n\tfont-family: 'Open Sans Condensed', sans-serif;\r\n}\r\n\r\n.form{\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\ttext-align: center;\r\n  font-size: 13pt;\r\n  float: left;\r\n  position:  relative;\r\n}\r\n\r\n.form .login-form{\r\n\twidth: 100%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n}\r\n\r\n.form .register-form{\r\n\twidth: 100%;\r\n\tmargin-top: 20px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n\tfloat: left;\r\n\tposition: relative;\r\n}\r\n\r\n.form #errorWarnings{\r\n\twidth: 1000px;\r\n\theight: 50px;\r\n\ttext-align: center;\r\n\tmargin: 20px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: transparent;\r\n}\r\n\r\n.form h1{\r\n\tcolor: white;\r\n\twidth: 100%;\r\n\tmargin-top: 70px;\r\n\ttext-align: center;\r\n\tfont-size: 70pt;\r\n\tmargin-bottom: 20px;\r\n\tposition: relative;\r\n\ttext-decoration: underline;\r\n\ttext-shadow: 0 0 80px rgba(255,255,255,0.25);\r\n\t}\r\n\r\n.form p{\r\n\twidth: 1000px;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\tmargin: 40px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tpadding-bottom: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: 2px solid white;\r\n}\r\n\r\n.form input{\r\n\twidth: 250px;\r\n\tmargin-bottom: 10px;\r\n\tpadding-top: 5px;\r\n\tpadding-bottom: 5px;\r\n\tpadding-left: 10px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n.form .message{\r\n\tmargin-left: 30px;\r\n}\r\n\r\n.form .message a{\r\n  color: #f2f2f2;\r\n}\r\n\r\n#login{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n  margin-top: 20px;\r\n\tmargin-bottom: 50px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#create{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#loginButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#registerButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 30px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n .login-page h2 {\r\n\twidth: 21ch;\r\n\theight: 100px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\t-webkit-animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\t        animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\tfont-size: 50pt;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\toverflow: hidden;\r\n\twhite-space: nowrap;\r\n\tborder-right: 3px solid white;\r\n}\r\n\r\n@-webkit-keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n@keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n#icon{\r\n\tcolor: white;\r\n}\r\n\r\n#icon2{\r\n\tcolor: white;\r\n}\r\n\r\n#icon3{\r\n\tcolor: white;\r\n}\r\n\r\n#iconUsername{\r\n  margin-right: 6px;\r\n  margin-left: 3px;\r\n\tcolor: white;\r\n}\r\n\r\n#login:active{\r\n\tcursor: pointer;\r\n}\r\n", ""]);
+exports.push([module.i, "*{\r\n\tfont-family: 'Open Sans Condensed', sans-serif;\r\n}\r\n\r\n.form{\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\ttext-align: center;\r\n  font-size: 13pt;\r\n  float: left;\r\n  position:  relative;\r\n}\r\n\r\n.form .login-form{\r\n\twidth: 100%;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n}\r\n\r\n.form .register-form{\r\n\twidth: 100%;\r\n\tmargin-top: 20px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\ttext-align: center;\r\n\tfont-size: 13pt;\r\n\tfloat: left;\r\n\tposition: relative;\r\n}\r\n\r\n.form #errorWarnings{\r\n\twidth: 1000px;\r\n\theight: 50px;\r\n\ttext-align: center;\r\n\tmargin: 20px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: transparent;\r\n}\r\n\r\n.form h1{\r\n\tcolor: white;\r\n\twidth: 100%;\r\n\tmargin-top: 70px;\r\n\ttext-align: center;\r\n\tfont-size: 70pt;\r\n\tmargin-bottom: 20px;\r\n\tposition: relative;\r\n\ttext-decoration: underline;\r\n\ttext-shadow: 0 0 80px rgba(255,255,255,0.25);\r\n\t}\r\n\r\n.form p{\r\n\twidth: 1000px;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\tmargin: 40px auto 20px auto;\r\n\tpadding-top: 12px;\r\n\tpadding-bottom: 12px;\r\n\tbackground: transparent;\r\n\tborder-radius: 10px;\r\n\tborder: 2px solid white;\r\n}\r\n\r\n.form input{\r\n\twidth: 250px;\r\n\tmargin-bottom: 10px;\r\n\tpadding-top: 5px;\r\n\tpadding-bottom: 5px;\r\n\tpadding-left: 10px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n.form .message{\r\n\tmargin-left: 30px;\r\n}\r\n\r\n.form .message a{\r\n  color: #f2f2f2;\r\n}\r\n\r\n#login{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n  margin-top: 20px;\r\n\tmargin-bottom: 50px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#create{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#loginButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n#registerButton{\r\n\twidth: 250px;\r\n\theight: 40px;\r\n\tcolor: black;\r\n\tfont-size: 14pt;\r\n\tmargin-top: 20px;\r\n\tmargin-bottom: 30px;\r\n\tmargin-left: 27px;\r\n\tborder-radius: 10px;\r\n\tbackground: #e5e4ee;\r\n}\r\n\r\n .login-page h2 {\r\n\twidth: 21ch;\r\n\theight: 100px;\r\n\tmargin-left: auto;\r\n\tmargin-right: auto;\r\n\t-webkit-animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\t        animation: typing-text 3s steps(23), blink 0.5s infinite alternate;\r\n\tfont-size: 50pt;\r\n\tcolor: white;\r\n\ttext-align: center;\r\n\toverflow: hidden;\r\n\twhite-space: nowrap;\r\n\tborder-right: 3px solid white;\r\n}\r\n\r\n@-webkit-keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@keyframes typing-text {\r\n\tfrom{\r\n\t\twidth: 0;\r\n\t}\r\n\tto {\r\n\t\twidth: 21ch;\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n@keyframes blink {\r\n\tfrom {\r\n\t\tborder-color: transparent;\r\n\t}\r\n\tto {\r\n\t\tborder-color: white;\r\n\t}\r\n}\r\n\r\n#icon{\r\n\tcolor: white;\r\n}\r\n\r\n#icon2{\r\n\tcolor: white;\r\n}\r\n\r\n#icon3{\r\n\tcolor: white;\r\n}\r\n\r\n#iconUsername{\r\n  margin-right: 6px;\r\n  margin-left: 3px;\r\n\tcolor: white;\r\n}\r\n\r\n#iconName{\r\n  margin-right: 6px;\r\n  margin-left: 3px;\r\n\tcolor: white;\r\n}\r\n\r\n#login:active{\r\n\tcursor: pointer;\r\n}\r\n", ""]);
 
 // exports
 
@@ -710,7 +720,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n\t<title>Welcome to WhatsGoingON</title>\n\t\n\t<meta charset=\"utf-8\">\n\t<link href=\"https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300Playfair+Display\" rel=\"stylesheet\">\n\t<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css\" rel=\"stylesheet\">\n</head>\n\n\n<div class=\"login-page\">\n<div class=\"form\">\n\n\t<div class=\"header\">\n\t\t<h1><i class=\"fa fa-comments\"></i>WhatsGoingON</h1>\n\t\t<p id=\"errorWarnings\"></p>\n\t</div>\n\n\t\t<form class=\"register-form\"  method=\"post\" (submit)=\"checkRegister()\">\n\t\t\t<div class=\"create\">\n\t\t\t\t<i id=\"iconUsername\" class=\"fa fa-user\"></i>\n\t\t\t\t\t<input type=\"text\" id=\"username\" placeholder=\"Username\"><br>\n\t\t\t\t<i id=\"icon\" class=\"fa fa-envelope-o fa-fw\"></i>\n\t\t\t\t\t<input type=\"email\" id=\"email\" placeholder=\"Email\"><br>\n\t\t\t\t<i id=\"icon2\" class=\"fa fa-key fa-fw\"></i>\n\t\t\t\t\t<input type=\"password\" id=\"password\" placeholder=\"Password\"><br>\n\t\t\t\t<i id=\"icon3\" class=\"fa fa-key fa-fw\"></i>\n\t\t\t\t\t<input type=\"password\" id=\"passwordConfirm\" placeholder=\"Confirm Password\"><br>\n\t\t\t\t\t<input type=\"submit\" id=\"create\" value=\"Create\"><br>\n\t\t\t</div>\n\t\t</form>\n\n</div>\n\t\t\t<h2 id=\"typedText\">_____Please Register____</h2>\n</div>"
+module.exports = "<head>\n\t<title>Welcome to WhatsGoingON</title>\n\t\n\t<meta charset=\"utf-8\">\n\t<link href=\"https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300Playfair+Display\" rel=\"stylesheet\">\n\t<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css\" rel=\"stylesheet\">\n</head>\n\n\n<div class=\"login-page\">\n<div class=\"form\">\n\n\t<div class=\"header\">\n\t\t<h1><i class=\"fa fa-comments\"></i>WhatsGoingON</h1>\n\t\t<p id=\"errorWarnings\"></p>\n\t</div>\n\n\t\t<form class=\"register-form\"  method=\"post\" (submit)=\"checkRegister()\">\n\t\t\t<div class=\"create\">\n\t\t\t\t<i id=\"iconUsername\" class=\"fa fa-user\"></i>\n\t\t\t\t\t<input type=\"text\" id=\"username\" placeholder=\"Username\"><br>\n\t\t\t\t<i id=\"iconName\" class=\"fa fa-user\"></i>\n\t\t\t\t\t<input type=\"text\" id=\"name\" placeholder=\"Name\"><br>\n\t\t\t\t<i id=\"icon\" class=\"fa fa-envelope-o fa-fw\"></i>\n\t\t\t\t\t<input type=\"email\" id=\"email\" placeholder=\"Email\"><br>\n\t\t\t\t<i id=\"icon2\" class=\"fa fa-key fa-fw\"></i>\n\t\t\t\t\t<input type=\"password\" id=\"password\" placeholder=\"Password\"><br>\n\t\t\t\t<i id=\"icon3\" class=\"fa fa-key fa-fw\"></i>\n\t\t\t\t\t<input type=\"password\" id=\"passwordConfirm\" placeholder=\"Confirm Password\"><br>\n\t\t\t\t\t<input type=\"submit\" id=\"create\" value=\"Create\"><br>\n\t\t\t</div>\n\t\t</form>\n\n</div>\n\t\t\t<h2 id=\"typedText\">_____Please Register____</h2>\n</div>"
 
 /***/ }),
 
@@ -756,13 +766,14 @@ var RegisterComponent = (function () {
         var textEmail = $("#email").val();
         var textPassword = $("#password").val();
         var textpasswordConfirm = $("#passwordConfirm").val();
+        var textName = $("#name").val();
         var user = {
-            name: textUsername,
+            name: textName,
             username: textUsername,
             email: textEmail,
             password: textPassword
         };
-        if (textUsername == "" || textEmail == "" || textPassword == "" || textpasswordConfirm == "") {
+        if (textUsername == "" || textEmail == "" || textPassword == "" || textpasswordConfirm == "" || textName == "") {
             $("#errorWarnings").html("Please fill in all fields ...");
             $("#errorWarnings").css("background-color", "pink");
             $("#errorWarnings").css("border", "2px solid red");
@@ -770,6 +781,12 @@ var RegisterComponent = (function () {
         }
         else if (checkUsername.test(textUsername) == false) {
             $("#errorWarnings").html("Invalid Username. Please try it again ...");
+            $("#errorWarnings").css("background-color", "pink");
+            $("#errorWarnings").css("border", "2px solid red");
+            return false;
+        }
+        else if (checkUsername.test(textName) == false) {
+            $("#errorWarnings").html("Invalid Name. Please try it again ...");
             $("#errorWarnings").css("background-color", "pink");
             $("#errorWarnings").css("border", "2px solid red");
             return false;
@@ -833,7 +850,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".row{\r\n  background: lightgrey;\r\n  position: center;\r\n  margin: 20px;\r\n  padding: 15px;\r\n  border-radius: 10px;\r\n  border: 3px solid darkgrey;\r\n  box-shadow: 10px 10px 10px black;\r\n}\r\n\r\n.profileImg{\r\n\tmax-width: 300px;\r\n\tmax-height: 300px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -846,7 +863,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/userprofile/userprofile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\r\n\t<h2 class=\"page-header\">{{user.name}}</h2>\r\n\t<ul class=\"list-group\">\r\n\t\t<li class=\"list-group-item\">Username: {{user.username}}</li>\r\n\t\t<li class=\"list-group-item\">Email: {{user.email}}</li>\r\n\t</ul>\r\n</div>\r\n\r\n<div id=\"huhu\"></div>"
+module.exports = "<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>What'sGoingOn</title>\r\n  <link rel=\"stylesheet\" href=\"https://bootswatch.com/4/sandstone/bootstrap.min.css\">\r\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\r\n\r\n\r\n</head>\r\n\r\n<div class=\"container\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-md-4\">\r\n\t\t\t<div id=\"proImg\" class=\"profileImg\"></div>\r\n\t\t</div>\t\r\n\t\t<div class=\"col-md-8\">\r\n\t\t\t<div *ngIf=\"user\">\r\n\t\t\t\t<h2 class=\"page-header\">{{user.name}}</h2>\r\n\t\t\t\t<ul class=\"list-group\">\r\n\t\t\t\t\t<li class=\"list-group-item\">Username: {{user.username}}</li>\r\n\t\t\t\t\t<li class=\"list-group-item\">Email: {{user.email}}</li>\r\n\t\t\t\t</ul>\r\n\t\t\t</div>\r\n\t\t</div>\t\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -889,11 +906,11 @@ var UserprofileComponent = (function () {
         this.authService.getUserprofile(send).subscribe(function (data) {
             _this.user = data.user;
             var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(_this.user.img.data.data)));
-            var output = document.createElement('img');
-            output.src = 'data:image/png;base64,' + base64String;
-            output.alt = 'Error! Failed to load image...';
-            var $div = $('#huhu');
-            $div.append(output);
+            var $output = document.createElement('img');
+            $output.src = 'data:image/png;base64,' + base64String;
+            $output.alt = 'Error! Failed to load image...';
+            var $div = $('#proImg');
+            $div.append($output);
         });
         function parseURLParams(url) {
             var queryStart = url.indexOf("?") + 1, queryEnd = url.indexOf("#") + 1 || url.length + 1, query = url.slice(queryStart, queryEnd - 1), pairs = query.replace(/\+/g, " ").split("&"), parms = {}, i, n, v, nv;
@@ -1207,6 +1224,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ValidateService = (function () {
     function ValidateService() {
     }
+    //Diese Funktionen werden nicht mehr verwendet!!!
     //Valdierung von Registrierung, Login und Email
     ValidateService.prototype.validateRegister = function (user) {
         if (user.name == undefined || user.username == undefined || user.email == undefined || user.password == undefined) {

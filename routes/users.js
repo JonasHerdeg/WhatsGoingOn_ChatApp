@@ -69,15 +69,21 @@ router.post('/authenticate', (req, res, next) => {
 router.post('/profile', (req, res, next) => {
 	const username1 = req.body.username;
 	const img = req.body.img.data;
-	console.log(img);
 	const update = {img:{data: img}};
 	User.findOne({username: username1}).then((user) =>{
 		return Object.assign(user, update);
-	}).then((user) => {
-		user.save();
+	}).then((user, ) => {
+		user.save((err)=>{
+			if (err) {
+				res.json({success:false, msg: 'Image might be too large! Choose one in lower resolution (max. 16KB supported)'});
+			} else {
+				res.json({success:true, msg: 'Successfully saved!'});
+			}
+		});
 	});
 });
 
+// Userprofile
 router.post('/userprofile', (req,res,next)=>{
 	const username = req.body.username;
 	User.getUserByUsername(username, (err, user) => {
