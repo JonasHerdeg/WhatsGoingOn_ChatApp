@@ -56,6 +56,7 @@ mongoose.connection.on('connected', () => {
 
 io.on('connection', (socket) => {
 	console.log('Socket Connected');
+	console.log('Help');
 
 
 	socket.on('disconnect', (data) => {
