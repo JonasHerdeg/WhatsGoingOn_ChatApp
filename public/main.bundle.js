@@ -638,18 +638,18 @@ var ProfileComponent = (function () {
         });
         var fileid = document.getElementById('fileid');
         fileid.addEventListener('change', function () {
-            /*if(this.files[1] != null){
-              self.flashMessage.show('Choose only one file please', {classes: ['alert-danger'], timeout: 3000});
-              return;
+            if (this.files[1] != null) {
+                self.flashMessage.show('Choose only one file please', { classes: ['alert-danger'], timeout: 3000 });
+                return;
             }
-            if(!(this.files[0].type === 'image/png') && !(this.files[0].type === 'image/jpeg')){
-              self.flashMessage.show('Please select an Image', {classes: ['alert-danger'], timeout: 3000});
-              return;
+            if (!(this.files[0].type === 'image/png') && !(this.files[0].type === 'image/jpeg')) {
+                self.flashMessage.show('Please select an Image', { classes: ['alert-danger'], timeout: 3000 });
+                return;
             }
-            if(this.files[0].size >= 16000){
-              self.flashMessage.show('Your Image is too large! Please select one with lower resolution (max. 16kb supported)', {classes: ['alert-danger'], timeout: 3000});
-              return;
-            }*/
+            if (this.files[0].size >= 16000) {
+                self.flashMessage.show('Your Image is too large! Please select one with lower resolution (max. 16kb supported)', { classes: ['alert-danger'], timeout: 3000 });
+                return;
+            }
             var reader = new FileReader();
             reader.onload = function (e) {
                 var img = reader.result;
@@ -668,11 +668,12 @@ var ProfileComponent = (function () {
                     img: change.img.data
                 };
                 self.authService.setProfile(send).subscribe(function (data) {
-                    /* if(data.success){
-                       self.flashMessage.show(data.msg , {classes: ['alert-success'], timeout: 3000});
-                     } else {
-                       self.flashMessage.show(data.msg, {classes: ['alert-danger'], timeout: 3000});
-                     }*/
+                    if (data.success) {
+                        self.flashMessage.show(data.msg, { classes: ['alert-success'], timeout: 3000 });
+                    }
+                    else {
+                        self.flashMessage.show(data.msg, { classes: ['alert-danger'], timeout: 3000 });
+                    }
                 });
             };
             reader.readAsArrayBuffer(this.files[0]);
